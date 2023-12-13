@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  symfony:
+    build:
+      context: .
+      dockerfile: Dockerfile.symfony
+    volumes:
+      - ./symfony:/var/www/html
+    command: sh -c "composer create-project symfony/skeleton . && composer require --dev symfony/web-server-bundle"
+    working_dir: /var/www/html
+
+  react:
+    image: node:latest
+    volumes:
+      - ./react:/app
+    command: sh -c "npx create-react-app ."
+    working_dir: /app

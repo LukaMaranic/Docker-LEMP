@@ -1,0 +1,6 @@
+FROM node:latest
+
+RUN npm install -g create-react-app
+
+# Create a new React app in the 'react' directory
+RUN npx create-react-app react
